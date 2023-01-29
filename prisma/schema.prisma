@@ -1,0 +1,62 @@
+// prisma/schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url = env("DATABASE_URL")
+}
+
+model Article {
+  id            Int      @id @default(autoincrement())
+  ncrNo         String   @unique
+  auditNo       String 
+  issuedAt      String
+  respon        String
+  auditType     String
+  conditionRef  String
+  level         Int
+  problem       Boolean   @default(false)
+  published     Boolean   @default(false)
+  due           String
+  condition     String
+  originator    String
+  send          String
+  accBy         String
+  accDate       String
+  createdAt     DateTime @default(now())
+  updateAt      DateTime  @updatedAt
+  Follow Follow?
+  Reply  Reply?
+}
+
+model Reply {
+  id      Int     @id @default(autoincrement())
+  articleId Int? @unique
+  root    String
+  action  String
+  Prevent String
+  implement String
+  personal  String
+  respBy    String
+  respDate  String
+  createdAt     DateTime @default(now())
+  updateAt      DateTime  @updatedAt
+  Article Article? @relation(fields: [articleId], references: [id])
+}
+
+model Follow{
+  id    Int   @id @default(autoincrement())
+  articleId Int? @unique
+  corrective  Boolean @default(false)
+  effective   Boolean @default(false)
+  refer       String
+  new         String
+  appBy       String
+  appDate     String
+  createdAt     DateTime @default(now())
+  updateAt      DateTime  @updatedAt
+  Article Article? @relation(fields: [articleId], references: [id])
+  
+}
