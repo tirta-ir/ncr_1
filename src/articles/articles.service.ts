@@ -10,12 +10,12 @@ export class ArticlesService {
     return this.prisma.article.create({data: createArticleDto}); 
   }
 
-  findDrafts(){
-    return this.prisma.article.findMany({where:{published:false}});
-  }
-
   findAll() {
-    return this.prisma.article.findMany({where: {published:false}})
+    return this.prisma.article.findMany({
+      include:{
+        Reply: true, Follow: true
+      }
+    });
   }
 
   findOne(id: number) {

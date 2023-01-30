@@ -11,14 +11,13 @@ datasource db {
 model Article {
   id            Int      @id @default(autoincrement())
   ncrNo         String   @unique
-  auditNo       String 
+  auditNo       String
   issuedAt      String
   respon        String
   auditType     String
   conditionRef  String
   level         Int
   problem       Boolean   @default(false)
-  published     Boolean   @default(false)
   due           String
   condition     String
   originator    String

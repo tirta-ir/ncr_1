@@ -1,14 +1,14 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { FollowsService } from './follow.service';
+import { FollowService } from './follow.service';
 import { CreateFollowDto } from './dto/create-follow.dto';
 import { UpdateFollowDto } from './dto/update-follow.dto';
 import { ApiCreatedResponse, ApiOkResponse, ApiTags } from '@nestjs/swagger';
 import { FollowEntity } from './entities/follow.entity';
 
-@Controller('follow')
-@ApiTags('follow')
+@Controller('ncr_follow-up')
+@ApiTags('NCR Follow-up')
 export class FollowController {
-  constructor(private readonly followService: FollowsService) {}
+  constructor(private readonly followService: FollowService) {}
 
   @Post()
   @ApiCreatedResponse({ type: FollowEntity })

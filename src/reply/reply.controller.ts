@@ -5,8 +5,8 @@ import { UpdateReplyDto } from './dto/update-reply.dto';
 import { ApiCreatedResponse, ApiOkResponse, ApiTags } from '@nestjs/swagger';
 import { ReplyEntity } from './entities/reply.entity';
 
-@Controller('reply')
-@ApiTags('reply')
+@Controller('ncr_reply')
+@ApiTags('NCR Reply')
 export class ReplyController {
   constructor(private readonly replyService: ReplyService) {}
 

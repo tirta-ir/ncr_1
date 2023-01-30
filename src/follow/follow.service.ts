@@ -4,7 +4,7 @@ import { CreateFollowDto } from './dto/create-follow.dto';
 import { UpdateFollowDto } from './dto/update-follow.dto';
 
 @Injectable()
-export class FollowsService {
+export class FollowService {
   constructor(private prisma:PrismaService){}
   create(createFollowDto: CreateFollowDto) {
     return this.prisma.follow.create({data: createFollowDto}); 

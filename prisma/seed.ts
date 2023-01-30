@@ -24,7 +24,6 @@ async function main() {
       send:'xx',
       accBy:'xx',
       accDate:'xx',
-      published: true,
     },
   });
 

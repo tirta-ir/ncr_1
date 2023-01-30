@@ -4,9 +4,9 @@ import { CreateArticleDto } from './dto/create-article.dto';
 import { UpdateArticleDto } from './dto/update-article.dto';
 import { ApiCreatedResponse, ApiOkResponse, ApiTags } from '@nestjs/swagger';
 import { ArticleEntity } from './entities/article.entity';
-import { FollowEntity } from 'src/follow/entities/follow.entity';
-@Controller('articles')
-@ApiTags('articles')
+
+@Controller('ncr_initial')
+@ApiTags('NCR Initial')
 export class ArticlesController {
   constructor(private readonly articlesService: ArticlesService) {}
 
@@ -16,15 +16,8 @@ export class ArticlesController {
     return this.articlesService.create(createArticleDto);
   }
 
-  @Get('drafts')
-  @ApiOkResponse({ type: ArticleEntity, isArray: true })
-  findDrafts(){
-    return this.articlesService.findDrafts();
-  }
-
   @Get()
   @ApiOkResponse({ type: ArticleEntity })
-  @ApiOkResponse({type:FollowEntity})
   findAll() {
     return this.articlesService.findAll();
   }

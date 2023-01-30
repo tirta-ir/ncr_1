@@ -8,7 +8,7 @@ import { FollowModule } from './follow/follow.module';
 
 @Module({
   imports: [PrismaModule, ArticlesModule, ReplyModule, FollowModule],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
